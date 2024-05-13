@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border font-light p-0 m-0 scroll-smooth;
+  }
+
+  body {
+    @apply min-h-screen font-inter;
+  }
+}
