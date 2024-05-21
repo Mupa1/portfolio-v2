@@ -1,11 +1,22 @@
-import "./App.css";
+import {
+  About,
+  Contact,
+  Header,
+  Hero,
+  PageLayout,
+  Projects,
+} from "./components";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div>
-      home
-    </div>
+    <PageLayout>
+      <Header />
+      <Hero />
+      <About />
+      <Projects />
+      <Contact />
+    </PageLayout>
   );
-}
+};
 
 export default App;

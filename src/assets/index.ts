@@ -1,0 +1,12 @@
+export { default as css } from "./css.png";
+export { default as graphql } from "./graphql.png";
+export { default as html } from "./html.png";
+export { default as js } from "./js.png";
+export { default as nextjs } from "./nextjs.png";
+export { default as nodejs } from "./nodejs.png";
+export { default as react } from "./react.png";
+export { default as redux } from "./redux.png";
+export { default as sass } from "./sass.png";
+export { default as sql } from "./sql.png";
+export { default as tailwind } from "./tailwind.png";
+export { default as ts } from "./ts.png";

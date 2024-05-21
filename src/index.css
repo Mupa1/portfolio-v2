@@ -8,6 +8,26 @@
   }
 
   body {
-    @apply min-h-screen font-inter;
+    @apply snap-y min-h-screen font-inter text-primary-100 bg-primary-950;
+  }
+
+  section {
+    @apply m-auto max-w-screen-lg px-6 md:px-32;
+  }
+
+  a {
+    @apply no-underline decoration-inherit hover:text-primary-500;
+  }
+
+  h2 {
+    @apply text-primary-500;
+  }
+
+  .active-link {
+    @apply text-[#636ef9];
+  }
+
+  .active-progress {
+    @apply bg-[#636ef9];
   }
 }
