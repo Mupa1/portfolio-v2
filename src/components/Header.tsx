@@ -1,58 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { animateScroll as scroll, Link as ScrollLink } from "react-scroll";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { motion } from "framer-motion";
 
-import SocialIcons from "./SocialIcons";
-
-const navigation = [
-  { name: "About", href: "about" },
-  { name: "Projects", href: "projects" },
-  { name: "Contact", href: "contact" },
-];
+import { headerNavLinks } from "../entities";
+import SocialIcons from "./ui/SocialIcons";
 
 const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [showHeader, setShowHeader] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
-  useEffect(() => {
-    const controlHeader = () => {
-      if (typeof window !== "undefined") {
-        if (window.scrollY > lastScrollY) {
-          setShowHeader(false);
-        } else {
-          setShowHeader(true);
-        }
-        setLastScrollY(window.scrollY);
-      }
-    };
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", controlHeader);
-
-      return () => {
-        window.removeEventListener("scroll", controlHeader);
-      };
-    }
-  }, [lastScrollY]);
-
+  const handleScrollToTop = () => {
+    scroll.scrollToTop();
+  };
+  
   return (
-    <motion.header
-      className={"fixed inset-x-0 top-0 z-50"}
-      initial={{ y: 0 }}
-      animate={{ y: showHeader ? 0 : -100 }}
-      transition={{ duration: 0.3 }}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 bg-primary-950/50">
       <nav
-        className="flex items-center bg-primary-950 justify-between px-6 py-3 lg:px-8"
+        className="flex items-center justify-between px-6 py-3 lg:px-8"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="/" onClick={() => scroll.scrollToTop()}>
-            <span className="sr-only">Mupa's Logo</span>
+          <button onClick={handleScrollToTop} className="flex items-center">
+            <span className="sr-only">Logo</span>
             <img src="/logo.svg" alt="Logo" />
-          </a>
+          </button>
         </div>
         <div className="flex md:hidden">
           <button
@@ -65,13 +36,13 @@ const Header: React.FC = () => {
           </button>
         </div>
         <div className="hidden md:flex gap-x-12">
-          {navigation.map((item) => (
+          {headerNavLinks.map((item) => (
             <ScrollLink
               key={item.name}
               to={item.href}
               smooth={true}
               duration={500}
-              className="text-sm font-normal leading-6 transition duration-150 ease-in-out cursor-pointer"
+              className="flex items-center gap-2 text-sm font-normal leading-6 transition duration-150 ease-in-out cursor-pointer"
               activeClass="active-link"
               spy={true}
             >
@@ -86,13 +57,13 @@ const Header: React.FC = () => {
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-50 bg-black bg-opacity-50 transition-opacity" />
-        <DialogPanel className="fixed inset-y-0 bg-primary-950 right-0 z-50 w-full overflow-y-auto px-6 py-3 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 transition duration-300 ease-out">
+        <DialogPanel className="fixed inset-y-0 bg-primary-950  right-0 z-50 w-full overflow-y-auto px-6 py-3 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 transition duration-300 ease-out">
           <div className="flex justify-between sm:justify-end">
             <div className="flex sm:hidden">
-              <a href="/" onClick={() => scroll.scrollToTop()}>
-                <span className="sr-only">Mupa's Logo</span>
+              <button onClick={handleScrollToTop} className="flex items-center">
+                <span className="sr-only">Logo</span>
                 <img src="/logo.svg" alt="Logo" />
-              </a>
+              </button>
             </div>
             <button
               type="button"
@@ -106,13 +77,13 @@ const Header: React.FC = () => {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                {navigation.map((item) => (
+                {headerNavLinks.map((item) => (
                   <ScrollLink
                     key={item.name}
                     to={item.href}
                     smooth={true}
                     duration={500}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-normal leading-7 transition duration-150 ease-in-out cursor-pointer"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-normal leading-6 transition duration-150 ease-in-out cursor-pointer"
                     onClick={() => setMobileMenuOpen(false)}
                     activeClass="active-link"
                     spy={true}
@@ -128,7 +99,7 @@ const Header: React.FC = () => {
           </div>
         </DialogPanel>
       </Dialog>
-    </motion.header>
+    </header>
   );
 };
 

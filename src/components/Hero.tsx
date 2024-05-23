@@ -1,5 +1,6 @@
-import { Link as ScrollLink } from "react-scroll";
 import { motion } from "framer-motion";
+
+import ExternalLink from "./ui/ExternalLink";
 
 const Hero: React.FC = () => {
   const itemVariants = {
@@ -39,56 +40,41 @@ const Hero: React.FC = () => {
       animate="visible"
       exit={{ opacity: 0, transition: { duration: 5 } }}
       variants={{ visible: { transition: { staggerChildren: 0.3 } } }}
-      className="relative h-screen min-h-screen overflow-hidden"
+      className="relative h-screen min-h-screen overflow-hidden bg-transparent"
     >
-      <div className="flex flex-col justify-center h-screen">
+      <div className="flex flex-col justify-center min-h-screen h-screen">
         <>
           <motion.p
+            className="leading-8"
             variants={{
               hidden: { opacity: 0, y: -20 },
               visible,
             }}
-            className="leading-8"
           >
             Hi, my name is
           </motion.p>
           <motion.h1
             variants={textVariants}
-            className="pt-4 text-4xl font-semibold tracking-tight sm:text-6xl "
+            className="pt-4 text-4xl font-semibold tracking-tight sm:text-6xl"
           >
             Mupa Nzaphila.
           </motion.h1>
           <motion.h2
             variants={textVariants}
-            className="pt-4 text-4xl sm:text-6xl font-semibold text-gray-500"
+            className="pt-4 text-4xl sm:text-6xl font-semibold text-gray-400"
           >
             A Frontend Engineer.
           </motion.h2>
-          <motion.p variants={textVariants} className="pt-4 leading-8">
+          <motion.p variants={textVariants}>
             I build responsive, accessible, interactive, and user-friendly
             websites and web applications.
           </motion.p>
-          <motion.p variants={textVariants} className="flex pt-7 leading-8">
-            <ScrollLink
-              className="mr-3 text-sm border-2 border-primary-500 hover:bg-primary-500 text-primary-500 hover:text-primary-100 rounded-md p-3 font-normal leading-6 transition duration-150 ease-in-out cursor-pointer"
-              to="about"
-              smooth={true}
-              duration={500}
-              activeClass="active-link"
-              spy={true}
-            >
-              About Me
-            </ScrollLink>
-            <ScrollLink
-              className="text-sm border-2 border-primary-500 hover:bg-primary-500 text-primary-500 hover:text-primary-100 rounded-md p-3 font-normal leading-6 transition duration-150 ease-in-out cursor-pointer"
-              to="projects"
-              smooth={true}
-              duration={500}
-              activeClass="active-link"
-              spy={true}
-            >
-              View Projects
-            </ScrollLink>
+          <motion.p variants={textVariants} className="flex pt-6 leading-8">
+            <ExternalLink href="http://localhost:5173/resume.pdf">
+              <div className="mr-3 text-sm border-2 border-primary-500 hover:bg-primary-600 text-primary-500 hover:text-primary-100 rounded-sm p-2 font-normal leading-6 transition duration-150 ease-in-out cursor-pointer">
+                Resume
+              </div>
+            </ExternalLink>
           </motion.p>
         </>
         <motion.div
@@ -96,11 +82,9 @@ const Hero: React.FC = () => {
           animate="scrollButton"
           className="absolute bottom-24 left-1/2 m-auto"
         >
-          <div className="font-semibold border-2 border-primary-500 m-auto p-1 rounded-full">
-            <span className="text-primary-500" aria-hidden="true">
-              &darr;
-            </span>
-          </div>
+          <span className="text-primary-600 text-4xl" aria-hidden="true">
+            &darr;
+          </span>
         </motion.div>
       </div>
     </motion.section>
