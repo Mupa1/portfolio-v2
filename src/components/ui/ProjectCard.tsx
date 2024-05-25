@@ -18,17 +18,19 @@ type ProjectCardType = {
 const ProjectCard: React.FC<ProjectCardType> = ({ project }) => {
   const { imageSrc, title, description, live, github, techStack } = project;
   return (
-    <article className="flex flex-col-reverse justify-between md:flex-row md:items-center md:mb-3 gap-3 bg-primary-900 rounded-md p-3 ">
+    <article className="flex flex-col-reverse justify-between md:flex-row md:items-center md:mb-3 gap-3 bg-primary-900 rounded-md p-3">
       <div>
         <p>{description}</p>
         <div className="flex gap-x-3">
           {techStack.map((tech) => (
-            <p className="text-gray-400">{tech}</p>
+            <p key={tech} className="text-gray-400">
+              {tech}
+            </p>
           ))}
         </div>
         <div className="flex gap-x-3 pt-3">
           <ExternalLink href={github}>
-            <FiGithub size="1.1rem" title="Github link" />
+            <FiGithub className="stroke-2" size="1.1rem" title="Github link" />
           </ExternalLink>
           <ExternalLink href={live}>
             <BsBoxArrowUpRight size="1.1rem" title="View link" />

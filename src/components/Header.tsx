@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { HiMiniXMark } from "react-icons/hi2";
+import { RiMenuFill } from "react-icons/ri";
 import { animateScroll as scroll, Link as ScrollLink } from "react-scroll";
 import { Dialog, DialogPanel } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import { headerNavLinks } from "../entities";
 import SocialIcons from "./ui/SocialIcons";
@@ -12,7 +13,7 @@ const Header: React.FC = () => {
   const handleScrollToTop = () => {
     scroll.scrollToTop();
   };
-  
+
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-primary-950/50">
       <nav
@@ -32,7 +33,7 @@ const Header: React.FC = () => {
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            <RiMenuFill className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
         <div className="hidden md:flex gap-x-12">
@@ -56,7 +57,7 @@ const Header: React.FC = () => {
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
       >
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 transition-opacity" />
+        <div className="fixed inset-0 z-50 bg-primary-950 bg-opacity-50 transition-opacity" />
         <DialogPanel className="fixed inset-y-0 bg-primary-950  right-0 z-50 w-full overflow-y-auto px-6 py-3 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 transition duration-300 ease-out">
           <div className="flex justify-between sm:justify-end">
             <div className="flex sm:hidden">
@@ -71,7 +72,7 @@ const Header: React.FC = () => {
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6 sm:mt-3" aria-hidden="true" />
+              <HiMiniXMark className="w-8 h-8 sm:mt-3" aria-hidden="true" />
             </button>
           </div>
           <div className="mt-6 flow-root">
@@ -85,7 +86,7 @@ const Header: React.FC = () => {
                     duration={500}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-normal leading-6 transition duration-150 ease-in-out cursor-pointer"
                     onClick={() => setMobileMenuOpen(false)}
-                    activeClass="active-link"
+                    activeClass="text-primary-500  md:active-link"
                     spy={true}
                   >
                     {item.name}

@@ -24,7 +24,7 @@
   }
 
   a {
-    @apply no-underline decoration-inherit hover:text-primary-600;
+    @apply no-underline decoration-inherit hover:text-primary-500;
   }
 
   h2 {

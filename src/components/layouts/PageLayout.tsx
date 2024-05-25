@@ -9,9 +9,9 @@ const PageLayout: React.FC<PropsWithChildren> = ({ children }) => {
     <IconContext.Provider value={{ size: "1.5rem" }}>
       <div className="w-screen mx-auto">
         <div className="hidden md:flex">
-          <SocialIcons className="fixed gap-y-8 left-10 flex-col justify-center items-center" />
+          <SocialIcons className="fixed z-10 h-screen gap-y-8 left-10 flex-col justify-center items-center" />
           <div className="md:flex">
-            <SectionTabs className="fixed gap-y-8 right-10 flex-col justify-center items-center" />
+            <SectionTabs className="fixed z-10 gap-y-8 right-10 flex-col justify-center items-center" />
           </div>
         </div>
         {children}
