@@ -3,16 +3,24 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    @apply md:snap-y md:snap-mandatory bg-primary-950;
+  }
+
   * {
     @apply box-border font-light p-0 m-0 scroll-smooth;
   }
 
   body {
-    @apply snap-y min-h-screen font-inter text-primary-100 bg-primary-950;
+    @apply min-h-screen text-sm sm:text-base font-inter text-primary-100 bg-primary-950;
+  }
+
+  p {
+    @apply leading-6 md:leading-8;
   }
 
   section {
-    @apply m-auto max-w-screen-lg px-6 md:px-32;
+    @apply m-auto max-w-screen-lg px-6 md:px-32 md:snap-center;
   }
 
   a {
@@ -20,14 +28,22 @@
   }
 
   h2 {
-    @apply text-primary-500;
+    @apply py-4 text-2xl sm:text-4xl font-semibold text-primary-600;
+  }
+
+  h4 {
+    @apply text-xl sm:text-2xl font-semibold;
   }
 
   .active-link {
-    @apply text-[#636ef9];
+    @apply relative inline-block;
+  }
+
+  .active-link::after {
+    @apply content-[""] absolute left-0 bottom-[-4px] w-full h-0.5 bg-primary-600;
   }
 
   .active-progress {
-    @apply bg-[#636ef9];
+    @apply bg-primary-50;
   }
 }
