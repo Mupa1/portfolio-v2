@@ -34,7 +34,7 @@ export const projectsData = [
     description:
       "A responsive personal web development portfolio built using react and screenshots combined using Figma.",
     techStack: ["React", "Material UI"],
-    live: "https://mupanzaphila.com/",
+    live: "https://mupa-dev.netlify.app/",
     github: "https://github.com/Mupa1/my-portfolio",
   },
 ];

@@ -116,7 +116,7 @@ const Contact = () => {
             error={errors?.message?.message}
             {...register("message")}
           />
-          <Button type="submit">Get in touch</Button>
+          <Button type="submit">Get In Touch</Button>
 
           {serverState.status &&
             (!serverState?.status?.ok ? (

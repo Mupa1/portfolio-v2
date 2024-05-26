@@ -14,7 +14,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   ) => {
     return (
       <div>
-        <div className="mt-2 relative">
+        <div className="relative">
           <label htmlFor={id} className="sr-only">
             {placeholder}
           </label>
@@ -25,7 +25,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             type={type}
             placeholder={placeholder}
             autoComplete={id}
-            className={`block w-full rounded-md border-0 bg-primary-900 py-1.5 px-3 shadow-sm ring-1 ring-inset focus:outline-none ${
+            className={`block w-full rounded-md border-0 bg-primary-900 p-2 sm:p-3 shadow-sm ring-1 ring-inset focus:outline-none ${
               error
                 ? "ring-red-300 placeholder:text-red-300 focus:ring-2 focus:ring-inset focus:ring-red-500"
                 : "ring-white/10 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6"
