@@ -20,11 +20,7 @@ const About = () => {
             key={key}
             className="flex flex-col justify-center rounded-md items-center size-24 md:size-28 text-gray-400 bg-primary-900"
           >
-            <img
-              className="size-12 md:size-16 pb-1"
-              src={value}
-              alt={key}
-            />
+            <img className="size-12 md:size-16 pb-1" src={value} alt={key} />
             {key}
           </div>
         ))}
