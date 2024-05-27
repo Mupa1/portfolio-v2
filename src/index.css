@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    @apply md:snap-y md:snap-mandatory bg-primary-950;
+    @apply bg-primary-950;
   }
 
   * {
@@ -20,7 +20,7 @@
   }
 
   section {
-    @apply m-auto max-w-screen-lg px-6 md:px-32 md:snap-center;
+    @apply m-auto max-w-screen-lg px-6 md:px-32;
   }
 
   a {
@@ -28,7 +28,7 @@
   }
 
   h2 {
-    @apply py-4 text-2xl sm:text-4xl font-semibold text-primary-600;
+    @apply py-4 text-2xl sm:text-4xl font-semibold text-primary-500;
   }
 
   h4 {

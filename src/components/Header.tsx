@@ -42,6 +42,7 @@ const Header: React.FC = () => {
               key={item.name}
               to={item.href}
               smooth={true}
+              offset={-100}
               duration={500}
               className="flex items-center gap-2 text-sm font-normal leading-6 transition duration-150 ease-in-out cursor-pointer"
               activeClass="active-link"

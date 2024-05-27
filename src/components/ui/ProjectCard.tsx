@@ -1,6 +1,5 @@
-import { BsBoxArrowUpRight } from "react-icons/bs";
 import { FiGithub } from "react-icons/fi";
-import { motion } from "framer-motion";
+import { HiMiniArrowTopRightOnSquare } from "react-icons/hi2";
 
 import ExternalLink from "./ExternalLink";
 
@@ -18,7 +17,9 @@ type ProjectCardType = {
 const ProjectCard: React.FC<ProjectCardType> = ({ project }) => {
   const { imageSrc, title, description, live, github, techStack } = project;
   return (
-    <article className="flex flex-col-reverse justify-between md:flex-row md:items-center md:mb-3 gap-3 bg-primary-900 rounded-md p-3">
+    <article
+      className={`flex flex-col-reverse justify-between md:flex-row p-3 gap-3 bg-primary-900 rounded-md`}
+    >
       <div>
         <p>{description}</p>
         <div className="flex gap-x-3">
@@ -28,19 +29,18 @@ const ProjectCard: React.FC<ProjectCardType> = ({ project }) => {
             </p>
           ))}
         </div>
-        <div className="flex gap-x-3 pt-3">
+        <div className="flex gap-x-3 items-center pt-3">
           <ExternalLink href={github}>
             <FiGithub className="stroke-2" size="1.1rem" title="Github link" />
           </ExternalLink>
           <ExternalLink href={live}>
-            <BsBoxArrowUpRight size="1.1rem" title="View link" />
+            <HiMiniArrowTopRightOnSquare size="1.4rem" title="View link" />
           </ExternalLink>
         </div>
       </div>
       <ExternalLink href={live}>
-        <motion.img
-          whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
-          className="md:max-w-60"
+        <img
+          className="md:max-w-[24rem] transition-transform duration-300 transform hover:rotate-3"
           src={imageSrc}
           alt={title}
         />

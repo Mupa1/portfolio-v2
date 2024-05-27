@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { LuSendHorizonal } from "react-icons/lu";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 import { ContactFormValidation } from "../validations";
+import { AnimateOnScroll } from "./ui/AnimateOnScroll";
 import { Button } from "./ui/Button";
 import { ErrorMessage } from "./ui/ErrorMessage";
 import { Input } from "./ui/Input";
@@ -53,10 +55,9 @@ const Contact = () => {
     }
   };
 
-  const handleOnSubmit: SubmitHandler<z.infer<typeof ContactFormValidation>> = (
-    data,
-  ) => {
-    console.log("data", data);
+  const handleOnSubmit: SubmitHandler<
+    z.infer<typeof ContactFormValidation>
+  > = async (data) => {
     setServerState({ submitting: true });
 
     const formData = new FormData();
@@ -64,28 +65,30 @@ const Contact = () => {
     formData.append("email", data.email);
     formData.append("message", data.message);
 
-    fetch("https://formspree.io/maypayal", {
-      method: "POST",
-      body: formData,
-      headers: {
-        Accept: "application/json",
-      },
-    })
-      .then((response) => {
-        if (response.ok) {
-          reset();
-          return response.json().then(() => {
-            handleServerResponse(true, "Message sent successfully!", null);
-          });
-        } else {
-          return response.json().then((data) => {
-            throw new Error(data.error || "Something went wrong");
-          });
-        }
-      })
-      .catch((err) => {
-        handleServerResponse(false, err.message, null);
+    try {
+      const response = await fetch("https://formspree.io/maypayal", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
       });
+
+      if (response.ok) {
+        await response.json();
+        reset();
+        handleServerResponse(true, "Message sent successfully!", null);
+      } else {
+        const data = await response.json();
+        throw new Error(data.error || "Something went wrong");
+      }
+    } catch (err) {
+      if (err instanceof Error) {
+        handleServerResponse(false, err.message, null);
+      } else {
+        handleServerResponse(false, "An unknown error occurred", null);
+      }
+    }
   };
 
   return (
@@ -94,42 +97,45 @@ const Contact = () => {
       className="relative mb-10 bg-[url('/contact-bg.svg')] bg-opacity-50 bg-cover bg-no-repeat h-screen flex flex-col justify-center"
     >
       <section className="w-full">
-        <h2 className="pt-18 md:pt-0">Contact Me</h2>
-        <form onSubmit={handleSubmit(handleOnSubmit)} className="grid gap-3">
-          <Input
-            placeholder="Name"
-            id="name"
-            type="text"
-            error={errors?.name?.message}
-            {...register("name")}
-          />
-          <Input
-            placeholder="Email"
-            id="email"
-            type="email"
-            error={errors?.email?.message}
-            {...register("email")}
-          />
-          <Textarea
-            placeholder="Enter your message..."
-            id="message"
-            error={errors?.message?.message}
-            {...register("message")}
-          />
-          <Button type="submit">Get In Touch</Button>
-
-          {serverState.status &&
-            (!serverState?.status?.ok ? (
-              <ErrorMessage error={serverState.status.msg} />
-            ) : (
-              <p className="text-center">Message sent successfully</p>
-            ))}
-        </form>
-
+        <AnimateOnScroll>
+          <h2 className="pt-18 md:pt-0">Contact Me</h2>
+          <form onSubmit={handleSubmit(handleOnSubmit)} className="grid gap-3">
+            <Input
+              placeholder="Name"
+              id="name"
+              type="text"
+              error={errors?.name?.message}
+              {...register("name")}
+            />
+            <Input
+              placeholder="Email"
+              id="email"
+              type="email"
+              error={errors?.email?.message}
+              {...register("email")}
+            />
+            <Textarea
+              placeholder="Enter your message..."
+              id="message"
+              error={errors?.message?.message}
+              {...register("message")}
+            />
+            <Button type="submit" className="w-full">
+              Get In Touch
+              <LuSendHorizonal size={18} />
+            </Button>
+            {serverState.status &&
+              (!serverState?.status?.ok ? (
+                <ErrorMessage error={serverState.status.msg} />
+              ) : (
+                <p className="text-center">Message sent successfully</p>
+              ))}
+          </form>
+        </AnimateOnScroll>
         <div className="flex items-center justify-center px-3 ">
           <p className="px-6 text-center pt-16 absolute bottom-0 lg:bottom-4 font-mono text-sm text-gray-500">
-            Designed and build by Mupa Nzaphila using Figma, React, Tailwind and
-            Framer Motion
+            Designed and build by Mupa Nzaphila using React, Tailwind and Framer
+            Motion.
           </p>
         </div>
       </section>

@@ -1,18 +1,19 @@
 import { projectsData } from "../entities";
+import { AnimateOnScroll } from "./ui/AnimateOnScroll";
 import ProjectCard from "./ui/ProjectCard";
 
 const Projects = () => {
   return (
-    <section id="projects" className="flex flex-col justify-center">
-      <h2 className="pt-24">My Projects</h2>
-      <div>
-        <div className="grid sm:grid-cols-2 gap-3 md:block">
+    <AnimateOnScroll>
+      <section id="projects" className="flex flex-col justify-center">
+        <h2 className="pt-24">My Projects</h2>
+        <div className="grid gap-3">
           {projectsData.map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+    </AnimateOnScroll>
   );
 };
 
