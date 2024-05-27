@@ -1,3 +1,4 @@
+import { HiMiniArrowTopRightOnSquare } from "react-icons/hi2";
 import { motion } from "framer-motion";
 
 import { Button } from "./ui/Button";
@@ -6,7 +7,7 @@ import ExternalLink from "./ui/ExternalLink";
 const Hero: React.FC = () => {
   const itemVariants = {
     initial: {
-      x: -500,
+      x: 500,
       opacity: 0,
     },
     animate: {
@@ -27,7 +28,7 @@ const Hero: React.FC = () => {
     },
   };
 
-  const visible = { opacity: 1, y: 0, transition: { duration: 1 } };
+  const visible = { opacity: 1, y: 0, transition: { duration: 2 } };
 
   const textVariants = {
     hidden: { opacity: 0, y: 10 },
@@ -74,8 +75,9 @@ const Hero: React.FC = () => {
 
             <motion.p variants={textVariants} className="flex pt-6 leading-8">
               <ExternalLink href="https://mupanzaphila.com/resume.pdf">
-                <Button type="submit" className="w-28">
+                <Button type="submit" className="w-30">
                   Resume
+                  <HiMiniArrowTopRightOnSquare size={18} />
                 </Button>
               </ExternalLink>
             </motion.p>
