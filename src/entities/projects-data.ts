@@ -1,6 +1,30 @@
-import { eshop, portfolio, shooter, tastyRecipes } from "../assets";
+import {
+  eshop,
+  portfolio,
+  scoutproperties,
+  shooter,
+  tastyRecipes,
+} from "../assets";
 
 export const projectsData = [
+  {
+    imageSrc: scoutproperties,
+    title: "Scout Properties",
+    description:
+      "A real estate platform for posting property listings and searching for properties to buy or rent.",
+    techStack: [
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Cloudinary",
+      "OpenAPI",
+    ],
+    live: "https://www.scout-properties.com/",
+    github: "https://github.com/Mupa1/scoutproperties",
+  },
   {
     imageSrc: eshop,
     title: "e-shop",
@@ -33,7 +57,7 @@ export const projectsData = [
     title: "This Portfolio",
     description:
       "A responsive personal web development portfolio built using react and screenshots combined using Figma.",
-    techStack: ["React", "Material UI"],
+    techStack: ["React", "TypeScript", "Material UI"],
     live: "https://mupa-dev.netlify.app/",
     github: "https://github.com/Mupa1/my-portfolio",
   },
