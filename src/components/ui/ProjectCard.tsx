@@ -22,7 +22,7 @@ const ProjectCard: React.FC<ProjectCardType> = ({ project }) => {
     >
       <div>
         <p>{description}</p>
-        <div className="flex gap-x-3">
+        <div className="flex gap-x-3 flex-wrap">
           {techStack.map((tech) => (
             <p key={tech} className="text-gray-400">
               {tech}

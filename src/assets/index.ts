@@ -9,6 +9,7 @@ export { default as portfolio } from "./portfolio.png";
 export { default as react } from "./react.png";
 export { default as redux } from "./redux.png";
 export { default as sass } from "./sass.png";
+export { default as scoutproperties } from "./scoutproperties.png";
 export { default as shooter } from "./shooter.png";
 export { default as sql } from "./sql.png";
 export { default as tailwind } from "./tailwind.png";

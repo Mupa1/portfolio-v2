@@ -134,8 +134,8 @@ const Contact = () => {
         </AnimateOnScroll>
         <div className="flex items-center justify-center px-3 ">
           <p className="px-6 text-center pt-16 absolute bottom-0 lg:bottom-4 font-mono text-sm text-gray-500">
-            Designed and build by Mupa Nzaphila using React, Tailwind and Framer
-            Motion.
+            Designed and build by Mupa Nzaphila using React, TailwindCSS and
+            Framer Motion.
           </p>
         </div>
       </section>
