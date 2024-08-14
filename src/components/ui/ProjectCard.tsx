@@ -21,6 +21,7 @@ const ProjectCard: React.FC<ProjectCardType> = ({ project }) => {
       className={`flex flex-col-reverse justify-between md:flex-row p-3 gap-3 bg-primary-900 rounded-md`}
     >
       <div>
+        <h3>{title}</h3>
         <p>{description}</p>
         <div className="flex gap-x-3 flex-wrap">
           {techStack.map((tech) => (
