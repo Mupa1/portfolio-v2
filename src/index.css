@@ -31,6 +31,10 @@
     @apply py-4 text-2xl sm:text-4xl font-semibold text-primary-500;
   }
 
+  h3 {
+    @apply py-4 text-lg sm:text-xl font-semibold text-gray-500;
+  }
+
   h4 {
     @apply text-xl sm:text-2xl font-semibold;
   }
