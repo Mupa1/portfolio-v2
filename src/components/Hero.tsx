@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
               variants={textVariants}
               className="pt-4 text-3xl sm:text-6xl font-semibold text-gray-400"
             >
-              A Full Stack Developer.
+              A Frontend Engineer.
             </motion.h2>
             <motion.p variants={textVariants}>
               I build responsive, accessible, interactive, and user-friendly
